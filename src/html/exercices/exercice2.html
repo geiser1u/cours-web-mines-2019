@@ -3,27 +3,31 @@
 <form method="post">
     <div>
       <label for="firstname">Prénom</label>
-      <input type="text" id="firstname" name="firstname" placeholder="Prénom" />
+      <input type="text" id="firstname" name="firstname" placeholder="Alice" />
     </div>
 
     <div>
         <label for="lastname">Nom</label>
-        <input type="text" id="lastname" name="lastname" placeholder="Nom" />
+        <input type="text" id="lastname" name="lastname" placeholder="Dupont" />
     </div>
   
     <div>
       <label for="email">E-mail</label>
-      <input type="text" id="email" name="email" placeholder="E-mail" />
+      <input type="email" id="email" name="email" placeholder="alice.dupont@orange.fr" />
       <br />
     </div>
   
     <div>
       <label for="password">Password</label>
-      <input type="password" id="password" name="password" />
+      <input type="password" id="password" name="password" placeholder="Au moins 10 caractères"/>
     </div>
   
     <div>
-      <button type="checkbox">Accepter le règlement</button>
-      <input type="submit", id="agreement", name="agreement", placeholder="Accepter le règlement" />
+      <label for="checkbox">Accepter le règlement</label>
+      <input type="checkbox", id="agreement", name="agreement" />
+    </div>
+
+    <div>
+        <button for="submit">Envoyer</button>
     </div>
   </form>
