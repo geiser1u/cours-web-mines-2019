@@ -28,3 +28,7 @@ $("body").on("click", "a", event => {
 
   return false;
 });
+
+$("body").on("click", "#submit-button", event => {
+  $(".messages-container").prepend("<p>Clicked!</p>");
+});
