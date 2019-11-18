@@ -1,24 +1,19 @@
-body #main-content div.box > a,
-a.special {
-  font-size: 18px;
-  font-weight: bold;
-  font-family: sans-serif;
-
-  color: #000;
-  background-color: #fff;
+label {
+  color: blue;
 }
 
-body #main-content {
+input[type=text] {
+  font-size: 24px;
+}
+
+#div {
   position: relative;
 }
 
-body #main-content div.box > a,
-a.special {
+#div #bloc {
   position: absolute;
-  top: 10px;
-  left: 10px;
-  width: 100px;
-  height: 100px;
-
-  display: block; /*hidden, inline, ...*/
+  top: 5px;
+  left: 230px;
+  font-size: 10px;
+  color: red;
 }
