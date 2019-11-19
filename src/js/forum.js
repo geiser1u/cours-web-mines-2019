@@ -26,3 +26,16 @@ function sendMessage(message) {
   // POST https://ensmn.herokuapp.com/messages (username, message)
   // After success, getMessages()
 }
+
+/*const test = "Mines";
+alert(`Test
+${test}
+`);
+
+setTimeout(() => {
+  alert("timeout reached!");
+}, 5000);
+
+setInterval(() => {
+  alert("timeout reached!");
+}, 10000);*/
