@@ -1,15 +1,21 @@
 import ky from "ky";
 import $ from "jquery";
+import { format } from "date-fns";
+import { fr } from "date-fns/locale";
 
 function secure(content) {
   return $(`<div>${content}</div>`).text();
+}
+
+function formatDate(timestamp) {
+  return format(new Date(timestamp), "do LLLL", { locale: fr });
 }
 
 function getMessageView(message) {
   try {
     return `<div class="card">
     <div class="card-header">
-    Envoyé le ${secure(message.timestamp)}
+    Envoyé le ${formatDate(message.timestamp)}
     </div>
     <div class="card-body">
       <blockquote class="blockquote mb-0">
