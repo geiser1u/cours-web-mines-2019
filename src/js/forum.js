@@ -1,6 +1,7 @@
 import ky from "ky";
 import $ from "jquery";
 import { format } from "date-fns";
+import { formatDistance } from "date-fns";
 import { fr } from "date-fns/locale";
 
 function secure(content) {
@@ -8,14 +9,18 @@ function secure(content) {
 }
 
 function formatDate(timestamp) {
-  return format(new Date(timestamp), "do LLLL", { locale: fr });
+  //return format(new Date(timestamp), "le d MMMM Y à H:mm", { locale: fr });
+  return formatDistance(new Date(timestamp), new Date(), {
+    addSuffix: true,
+    locale: fr
+  });
 }
 
 function getMessageView(message) {
   try {
     return `<div class="card">
     <div class="card-header">
-    Envoyé le ${formatDate(message.timestamp)}
+    Envoyé ${formatDate(message.timestamp)}
     </div>
     <div class="card-body">
       <blockquote class="blockquote mb-0">
