@@ -3,6 +3,7 @@ import ky from "ky";
 async function refreshMessages() {
   // GET https://ensmn.herokuapp.com/messages
   const messages = await ky.get("https://ensmn.herokuapp.com/messages").json();
+  console.log(messages[0].author);
   displayMessages(messages);
 }
 
