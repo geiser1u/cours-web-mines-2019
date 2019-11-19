@@ -26,31 +26,71 @@ function displayMessages(messages) {
 
   // Iterate on messages and display getMessageView(message);
   messages.forEach(message => {
-    $messagesContainer.append(getMessageView(message));
+    $messagesContainer.prepend(getMessageView(message));
   });
 }
 
 async function refreshMessages() {
   // GET https://ensmn.herokuapp.com/messages
-  const messages = await ky.get("https://ensmn.herokuapp.com/messages").json();
-  //console.log(messages[0].author);
+  const messages = [];
+  let pageIndex = 1;
+  let finished = false;
+
+  while (!finished) {
+    const pageMessages = await ky
+      .get(`https://ensmn.herokuapp.com/messages?page=${pageIndex}`)
+      .json();
+    pageIndex += 1;
+
+    // Concatenate
+    messages.concat(pageMessages);
+
+    // Is finished ?
+    finished = pageMessages.length < 10;
+    // console.log(messages[0].author);
+  }
   displayMessages(messages);
 }
 
 setInterval(() => {
   refreshMessages();
-}, 1000);
+}, 10000);
 
-function sendMessage(message) {
+async function sendMessage(username, message) {
   // POST https://ensmn.herokuapp.com/messages (username, message)
+  await ky.post("https://ensmn.herokuapp.com/messages", {
+    json: {
+      username,
+      message
+    }
+  });
+
   // After success, getMessages()
+  await refreshMessages();
 }
 
 $("body").on("submit", "#message-form", event => {
+  // Prevent page refresh
   event.preventDefault();
+
   const $author = $("#author");
   const $message = $("#message");
-  console.log($author.val(), $message.val());
+
+  const author = $author.val();
+  const message = $message.val();
+
+  if (author == null || author.length === 0) {
+    return;
+  }
+
+  if (message == null || message.length === 0) {
+    return;
+  }
+
+  sendMessage(author, message);
+
+  $author.val("");
+  $message.val("");
 });
 
 /*const test = "Mines";
