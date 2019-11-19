@@ -2,11 +2,20 @@ import ky from "ky";
 import $ from "jquery";
 
 function getMessageView(message) {
-  return `<div>
-    <p>${message.author}</p>
-    <p>${message.timestamp}</p>
-    <p>${message.content}</p>
-  </div>`;
+  return `<div class="card">
+  <div class="card-header">
+    Envoyé le ${message.timestamp}
+  </div>
+  <div class="card-body">
+    <blockquote class="blockquote mb-0">
+      <p>${message.content}</p>
+      <footer class="blockquote-footer">
+        ${message.author}
+      </footer>
+    </blockquote>
+  </div>
+</div>
+<br />`;
 }
 
 function displayMessages(messages) {
@@ -24,7 +33,7 @@ function displayMessages(messages) {
 async function refreshMessages() {
   // GET https://ensmn.herokuapp.com/messages
   const messages = await ky.get("https://ensmn.herokuapp.com/messages").json();
-  console.log(messages[0].author);
+  //console.log(messages[0].author);
   displayMessages(messages);
 }
 
@@ -36,6 +45,13 @@ function sendMessage(message) {
   // POST https://ensmn.herokuapp.com/messages (username, message)
   // After success, getMessages()
 }
+
+$("body").on("submit", "#message-form", event => {
+  event.preventDefault();
+  const $author = $("#author");
+  const $message = $("#message");
+  console.log($author.val(), $message.val());
+});
 
 /*const test = "Mines";
 alert(`Test

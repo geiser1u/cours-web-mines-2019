@@ -2,40 +2,47 @@
   <span class="navbar-brand mb-0 h1">Forum de discussion</span>
 </nav>
 
-<div class="fixed-bottom">
-  <div class="card text-center">
-    <div class="card text-white bg-dark">
-      <div class="card-body">
-        <div class="input-group mb-3">
-          <div class="input-group-prepend">
-            <span class="input-group-text" id="basic-addon1">@</span>
+<form id="message-form">
+  <div class="fixed-bottom">
+    <div class="card text-center">
+      <div class="card text-white bg-dark">
+        <div class="card-body">
+          <div class="input-group mb-3">
+            <div class="input-group-prepend">
+              <span class="input-group-text" id="basic-addon1">@</span>
+            </div>
+            <input
+              id="author"
+              type="text"
+              class="form-control"
+              placeholder="Quelqu'un"
+              aria-label="Username"
+              aria-describedby="basic-addon1"
+            />
           </div>
-          <input
-            type="text"
-            class="form-control"
-            placeholder="Quelqu'un"
-            aria-label="Username"
-            aria-describedby="basic-addon1"
-          />
-        </div>
-        <div class="input-group">
-          <div class="input-group-prepend">
-            <span class="input-group-text">Message</span>
+          <div class="input-group">
+            <div class="input-group-prepend">
+              <span class="input-group-text">Message</span>
+            </div>
+            <textarea
+              id="message"
+              class="form-control"
+              aria-label="With textarea"
+            ></textarea>
           </div>
-          <textarea class="form-control" aria-label="With textarea"></textarea>
+          <br />
+          <button
+            type="button"
+            id="submit-button"
+            class="btn btn-primary btn-block"
+          >
+            Envoyer
+          </button>
         </div>
-        <br />
-        <button
-          type="button"
-          id="submit-button"
-          class="btn btn-primary btn-block"
-        >
-          Envoyer
-        </button>
       </div>
     </div>
   </div>
-</div>
+</form>
 
 <div class="messages-container">
   <div class="card">
