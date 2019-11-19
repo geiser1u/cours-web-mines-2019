@@ -15,7 +15,7 @@ function displayMessages(messages) {
 
   // Iterate on messages and display getMessageView(message);
   messages.forEach(message => {
-    console.log(getMessageView(mesage))
+    console.log(getMessageView(message));
   });
 }
 
