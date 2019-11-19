@@ -32,7 +32,7 @@ function displayMessages(messages) {
 
 async function refreshMessages() {
   // GET https://ensmn.herokuapp.com/messages
-  const messages = [];
+  let messages = [];
   let pageIndex = 1;
   let finished = false;
 
@@ -43,7 +43,7 @@ async function refreshMessages() {
     pageIndex += 1;
 
     // Concatenate
-    messages.concat(pageMessages);
+    messages = messages.concat(pageMessages);
 
     // Is finished ?
     finished = pageMessages.length < 10;
@@ -92,6 +92,8 @@ $("body").on("submit", "#message-form", event => {
   $author.val("");
   $message.val("");
 });
+
+refreshMessages();
 
 /*const test = "Mines";
 alert(`Test
