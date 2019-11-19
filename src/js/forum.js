@@ -1,21 +1,29 @@
 import ky from "ky";
 import $ from "jquery";
 
+function secure(content) {
+  return $(`<div>${content}</div>`).text();
+}
+
 function getMessageView(message) {
-  return `<div class="card">
-  <div class="card-header">
-    Envoyé le ${message.timestamp}
-  </div>
-  <div class="card-body">
-    <blockquote class="blockquote mb-0">
-      <p>${message.content}</p>
-      <footer class="blockquote-footer">
-        ${message.author}
-      </footer>
-    </blockquote>
-  </div>
-</div>
-<br />`;
+  try {
+    return `<div class="card">
+    <div class="card-header">
+    Envoyé le ${secure(message.timestamp)}
+    </div>
+    <div class="card-body">
+      <blockquote class="blockquote mb-0">
+        <p>${secure(message.content)}</p>
+        <footer class="blockquote-footer">
+          ${secure(message.author)}
+        </footer>
+      </blockquote>
+    </div>
+    </div>
+    <br />`;
+  } catch {
+    return "";
+  }
 }
 
 function displayMessages(messages) {
@@ -51,6 +59,8 @@ async function refreshMessages() {
   }
   displayMessages(messages);
 }
+
+refreshMessages();
 
 setInterval(() => {
   refreshMessages();
@@ -92,8 +102,6 @@ $("body").on("submit", "#message-form", event => {
   $author.val("");
   $message.val("");
 });
-
-refreshMessages();
 
 /*const test = "Mines";
 alert(`Test
