@@ -10,12 +10,14 @@ function getMessageView(message) {
 }
 
 function displayMessages(messages) {
+  const $messagesContainer = $(".messages-container");
+
   // Clear list content on view
-  $(".messages-container").empty();
+  $messagesContainer.empty();
 
   // Iterate on messages and display getMessageView(message);
   messages.forEach(message => {
-    console.log(getMessageView(message));
+    $messagesContainer.append(getMessageView(message));
   });
 }
 
