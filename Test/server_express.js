@@ -22,8 +22,8 @@ app.get('/messages', (req, res) => {
 });
 
 app.get('/messages/:id', celebrate({
-    body: Joi.object().keys({
-        id: Joi.number().integer().required(),
+    params: ({
+        id: Joi.number().integer().required()
     })
 }), (req, res) => {
     sql = "SELECT * FROM MESSAGES WHERE ID = ?";

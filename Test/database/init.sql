@@ -11,7 +11,7 @@ INSERT INTO MESSAGES
 VALUES
     ('Someone', 'Hello world', '21/11/19');
 
-INSERT INTO MESSAGES
+/*INSERT INTO MESSAGES
     (AUTHOR, CONTENT, DATE)
 VALUES
     ('Someone', 'Hello world', '21/11/19');
@@ -29,4 +29,4 @@ VALUES
 INSERT INTO MESSAGES
     (AUTHOR, CONTENT, DATE)
 VALUES
-    ('Someone', 'Hello world', '21/11/19');
+    ('Someone', 'Hello world', '21/11/19');*/
