@@ -1,10 +1,7 @@
-const Fs = require('fs');
+const Http = require('http');
 
-console.log(Fs.readdirSync('./'));
-
-Fs.readdir('./', (err, content) => {
-    console.log(err);
-    console.log(content);
+const server = Http.createServer((req, res) => {
+    res.end('hello: ' + req.url);
 });
 
-console.log("hello");
+server.listen(8080);
