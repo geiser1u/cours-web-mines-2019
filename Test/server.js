@@ -5,3 +5,4 @@ const server = Http.createServer((req, res) => {
 });
 
 server.listen(8080);
+console.log("hello");
