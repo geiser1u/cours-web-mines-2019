@@ -1,4 +1,4 @@
-const DB_NAME = 'tests-express-sqlite';
+const DB_NAME = 'messages';
 const Fs = require('fs');
 const Path = require('path');
 const Sqlite = require('sqlite3');

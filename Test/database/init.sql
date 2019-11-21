@@ -1,28 +1,32 @@
-CREATE TABLE POSTS
+CREATE TABLE MESSAGES
 (
     ID INTEGER PRIMARY KEY AUTOINCREMENT,
-    TITLE TEXT NOT NULL,
-    CONTENT TEXT
+    AUTHOR TEXT NOT NULL,
+    CONTENT TEXT NOT NULL,
+    DATE TEXT
 );
 
-INSERT INTO POSTS
-    (TITLE, CONTENT)
+INSERT INTO MESSAGES
+    (AUTHOR, CONTENT, DATE)
 VALUES
-    ('hello world', 'hello');
+    ('Someone', 'Hello world', '21/11/19');
 
-INSERT INTO POSTS
-    (TITLE, CONTENT)
+INSERT INTO MESSAGES
+    (AUTHOR, CONTENT, DATE)
 VALUES
-    ('my travel in the land of unicorns', 'unicorns are cool');
+    ('Someone', 'Hello world', '21/11/19');
 
-CREATE TABLE USERS
-(
-    ID INTEGER PRIMARY KEY AUTOINCREMENT,
-    USERNAME TEXT NOT NULL,
-    PASSWORD TEXT NOT NULL
-);
-
-INSERT INTO USERS
-    (USERNAME, PASSWORD)
+INSERT INTO MESSAGES
+    (AUTHOR, CONTENT, DATE)
 VALUES
-    ('admin', 'admin123');
+    ('Someone', 'Hello world', '21/11/19');
+
+INSERT INTO MESSAGES
+    (AUTHOR, CONTENT, DATE)
+VALUES
+    ('Someone', 'Hello world', '21/11/19');
+
+INSERT INTO MESSAGES
+    (AUTHOR, CONTENT, DATE)
+VALUES
+    ('Someone', 'Hello world', '21/11/19');
