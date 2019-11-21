@@ -21,7 +21,7 @@ app.get('/messages', (req, res) => {
 });
 
 app.get('/messages/:id', (req, res) => {
-    sql = `SELECT * FROM MESSAGES WHERE ID = ${req.params.id}`;
+    sql = "SELECT * FROM MESSAGES WHERE ID = " + req.params.id;
     DB.all(sql, [], (err, rows) => {
         if (err) {
             console.log(err);
@@ -35,7 +35,7 @@ app.post('/messages', (req, res) => {
     sql = `INSERT INTO MESSAGES
                 (AUTHOR, CONTENT, DATE)
            VALUES
-                (${req[1]}, ${req[2]}, ${req[3]});
+                (${req.params.author}, ${req.params.content}, ${req.params.date});
     `;
     DB.all(sql, [], (err, rows) => {
         if (err) {
